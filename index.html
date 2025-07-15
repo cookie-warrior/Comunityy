@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Communityy - Build Your Community</title>
+    <meta name="description" content="Create and join communities, share products, and connect with like-minded people on Communityy">
+    <meta name="keywords" content="community, platform, social, networking, products, creators">
+    <meta property="og:title" content="Communityy - Build Your Community">
+    <meta property="og:description" content="Create and join communities, share products, and connect with like-minded people">
+    <meta name="twitter:title" content="Communityy - Build Your Community">
+    <meta name="twitter:description" content="Create and join communities, share products, and connect with like-minded people">
+
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
+    <script>
+      const ChartJS = window.Chart;
+    </script>
+
+    <!-- Predefined Tailwind CSS, use it as needed, or update base on your -->
+    <style type="text/tailwindcss">
+    @layer theme {
+        :root {
+            --primary: #b794f6;
+            --primary-dark: #9f7aea;
+            --secondary: #b0c4de;
+            --accent: #e6fffa;
+            --purple: #ddd6fe;
+            --steel-blue: #b0c4de;
+        }
+    }
+
+    @layer base {
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+    }
+
+    @layer components {
+        .btn-primary {
+            @apply bg-purple-500 hover:bg-purple-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+        }
+        .btn-secondary {
+            @apply bg-blue-200 hover:bg-blue-300 text-gray-900 font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+        }
+        .card {
+            @apply bg-white rounded-xl shadow-sm border border-gray-100 p-6;
+        }
+        .input-field {
+            @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent;
+        }
+    }
+
+    @layer utilities {
+        .gradient-bg {
+            background: linear-gradient(135deg, #b794f6 0%, #b0c4de 100%);
+        }
+        .dropdown {
+            @apply absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50;
+        }
+        .page-transition {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideIn {
+        from { opacity: 0; transform: translateX(-20px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes bounceIn {
+        0% { opacity: 0; transform: scale(0.3); }
+        50% { opacity: 1; transform: scale(1.05); }
+        100% { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+    }
+
+    .animate-slide-in {
+        animation: slideIn 0.5s ease-out;
+    }
+
+    .animate-bounce-in {
+        animation: bounceIn 0.6s ease-out;
+    }
+
+    .animate-pulse-hover:hover {
+        animation: pulse 0.3s ease-in-out;
+    }
+    </style>
+
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel" src="components/Header.js"></script>
+    <script type="text/babel" src="components/LandingPage.js"></script>
+    <script type="text/babel" src="components/AuthPage.js"></script>
+    <script type="text/babel" src="components/CreateCommunity.js"></script>
+    <script type="text/babel" src="components/JoinCommunity.js"></script>
+    <script type="text/babel" src="components/CommunityDashboard.js"></script>
+    <script type="text/babel" src="components/ProductUpload.js"></script>
+    <script type="text/babel" src="components/HomeFeed.js"></script>
+    <script type="text/babel" src="components/UserProfile.js"></script>
+    <script type="text/babel" src="components/AdminDashboard.js"></script>
+    <script type="text/babel" src="components/PricingPage.js"></script>
+    <script type="text/babel" src="components/CreateEvent.js"></script>
+    <script type="text/babel" src="components/CreateSession.js"></script>
+    <script type="text/babel" src="components/CreateChallenge.js"></script>
+    <script type="text/babel" src="components/CreateCourse.js"></script>
+    <script type="text/babel" src="components/CreateMembership.js"></script>
+    <script type="text/babel" src="components/FeaturesPage.js"></script>
+    <script type="text/babel" src="components/CommunitySearch.js"></script>
+    <script type="text/babel" src="components/EventBooking.js"></script>
+    <script type="text/babel" src="components/CommunityStats.js"></script>
+    <script type="text/babel" src="components/PaymentPage.js"></script>
+    <script type="text/babel" src="components/Footer.js"></script>
+    <script type="text/babel" src="components/NotificationCenter.js"></script>
+    <script type="text/babel" src="components/LiveChat.js"></script>
+    <script type="text/babel" src="components/EnhancedUserProfile.js"></script>
+    <script type="text/babel" src="components/AboutPage.js"></script>
+    <script type="text/babel" src="components/ContactPage.js"></script>
+    <script type="text/babel" src="components/HelpPage.js"></script>
+    <script type="text/babel" src="components/DocumentationPage.js"></script>
+    <script type="text/babel" src="components/BlogPage.js"></script>
+    <script type="text/babel" src="components/CareersPage.js"></script>
+    <script type="text/babel" src="components/CommunityCustomize.js"></script>
+    <script type="text/babel" src="utils/auth.js"></script>
+    <script type="text/babel" src="utils/notifications.js"></script>
+    <script type="text/babel" src="utils/chatAgent.js"></script>
+    <script type="text/babel" src="utils/passwordValidator.js"></script>
+    <script type="text/babel" src="app.js"></script>
+</body>
+</html>
